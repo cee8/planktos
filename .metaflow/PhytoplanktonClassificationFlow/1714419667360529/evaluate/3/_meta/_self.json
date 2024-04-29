@@ -1,0 +1,1 @@
+{"run_number": "1714419667360529", "step_name": "evaluate", "task_id": "3", "flow_id": "PhytoplanktonClassificationFlow", "user_name": "chris", "tags": [], "system_tags": ["metaflow_version:2.11.10", "python_version:3.12.1", "user:chris", "runtime:dev"], "ts_epoch": 1714419969375}

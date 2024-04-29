@@ -19,10 +19,13 @@ class PhytoplanktonClassificationFlow(FlowSpec):
 
     @step
     def train(self):
+        print(f"Current Working Directory: {os.getcwd()}")
         print("Training the model...")
         self.model = create_model(input_shape=self.X_train.shape[1:], num_classes=self.y_train.shape[1])
-        self.model, self.history = train_model(self.model, self.X_train, self.y_train, self.X_test, self.y_test, epochs=10, batch_size=32)
-        model_save_path = '../models/model.h5'
+        self.model, self.history = train_model(self.model, self.X_train, self.y_train, self.X_test, self.y_test, epochs=1, batch_size=32)
+        model_directory = 'models'  
+        os.makedirs(model_directory, exist_ok=True)
+        model_save_path = os.path.join(model_directory, 'model.keras')
         self.model.save(model_save_path)
         print(f"Model saved to {model_save_path}")
         print("Model training complete.")
