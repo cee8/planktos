@@ -1,3 +1,9 @@
+# Flow
+.metaflow/
+
+# Model
+models/
+
 # Data
 data/
 
