@@ -1,0 +1,1 @@
+{"flow_id": "PhytoplanktonClassificationFlow", "run_number": "1714372198153807", "step_name": "train", "task_id": "2", "field_name": "ds-root", "type": "ds-root", "value": "/Users/chris/code/projects/Phyto/planktos/.metaflow", "tags": ["attempt_id:0"], "user_name": "chris", "ts_epoch": 1714372314224}

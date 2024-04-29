@@ -1,6 +1,8 @@
 # Import necessary libraries
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
 
 # Function to create the model
 def create_model(input_shape, num_classes):
@@ -21,11 +23,21 @@ def create_model(input_shape, num_classes):
     return model
 
 # Function to train the model
-def train_model(model, X_train, y_train, X_test, y_test, epochs=10):
-    history = model.fit(X_train, y_train, epochs=epochs, validation_data=(X_test, y_test))
-    return history
+def train_model(model, X_train, y_train, X_test, y_test, epochs=10, batch_size=32):
+    history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test, y_test))
+    return model, history
 
 # Optionally, add a function to evaluate the model
 def evaluate_model(model, X_test, y_test):
-    test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
-    print(f"Test accuracy: {test_acc}, Test loss: {test_loss}")
+    predictions = model.predict(X_test)
+    predictions = (predictions > 0.5).astype(int)  # Adjust based on your specific case
+    accuracy = accuracy_score(y_test, predictions)
+    precision = precision_score(y_test, predictions, average='macro')
+    recall = recall_score(y_test, predictions, average='macro')
+    f1 = f1_score(y_test, predictions, average='macro')
+    return {
+        'accuracy': accuracy,
+        'precision': precision,
+        'recall': recall,
+        'f1_score': f1
+    }
