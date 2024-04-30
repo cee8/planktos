@@ -19,28 +19,34 @@ def predict_image(model, img, class_names):
     return predicted_class_name, prediction
 
 
-def main(image_path, model_path, class_names):
-    print("Loading model...")
+def main(image_path, model_path, label_path):
+    print("Loading model from:", model_path)
     model = load_model(model_path)
-    print("Model loaded.")
+    print("Model successfully loaded.")
 
-    print("Loading and preparing image...")
+    # Load class names from JSON file
+    with open(label_path, 'r') as f:
+        class_names = json.load(f)
+    print("Class names loaded:", list(class_names.keys()))
+
+    print(f"Loading and preparing image from: {image_path}")
     img = load_and_prepare_image(image_path)
-    print("Image loaded and prepared.")
+    print("Image successfully loaded and prepared for prediction.")
 
-    print("Making prediction...")
-    predicted_class_name, prediction = predict_image(model, img, class_names)
-    print("Predicted Class:", predicted_class_name)
-    print("Raw Prediction:", prediction)
+    print("Making prediction on the image...")
+    predicted_class_name, prediction = predict_image(model, img, list(class_names.keys()))
+    print(f"Prediction complete. Predicted Class: {predicted_class_name}")
+    print("Detailed Prediction Probabilities:", prediction)
 
 if __name__ == "__main__":
     # Define the path to your image and model here
-    image_path = 'data/test/Licmophora_sp_5.png'
+    image_path = 'data/test/Chaetoceros_similis_6.png'  # Replace with a valid image path
     model_path = 'models/model.keras'  # Adjust this to where your trained model is saved
     phyto_dir = 'data/training/phyto_skye/phyto'
 
-    # Ensure only directories are counted as classes
-    class_names = sorted([d for d in os.listdir(phyto_dir) if os.path.isdir(os.path.join(phyto_dir, d))])
+    # Filter out hidden files and ensure only directories are counted as classes
+    class_names = sorted([d for d in os.listdir(phyto_dir)
+                          if os.path.isdir(os.path.join(phyto_dir, d)) and not d.startswith('.')])
 
     # Load model
     model = load_model(model_path)
@@ -54,7 +60,8 @@ if __name__ == "__main__":
     predictions = model.predict(img)
     predicted_class_index = np.argmax(predictions)
     predicted_class_name = class_names[predicted_class_index]
-    print("Predicted Class:", predicted_class_name)
+    
+    print("Predicted Class Index:", predicted_class_index)
+    print("Predicted Class Name:", predicted_class_name)
     print("Raw Prediction:", predictions)
-
-    # main(image_path, model_path)
+    print("Class names:", class_names)
