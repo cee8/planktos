@@ -4,12 +4,12 @@ from tensorflow.keras.utils import to_categorical
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-
 def load_dataset(dataset_path, image_size=(128, 128), test_size=0.2):
     X, y = [], []
-    labels = [label for label in os.listdir(dataset_path) if os.path.isdir(os.path.join(dataset_path, label))]
+    labels = sorted([label for label in os.listdir(dataset_path) if os.path.isdir(os.path.join(dataset_path, label))])
     label_dict = {label: index for index, label in enumerate(labels)}
-
+    print("Label dictionary:", label_dict)
+    
     for label in labels:
         imgs_path = os.path.join(dataset_path, label)
         for img_name in os.listdir(imgs_path):
@@ -21,7 +21,7 @@ def load_dataset(dataset_path, image_size=(128, 128), test_size=0.2):
                 y.append(label_dict[label])
 
     X = np.array(X, dtype="float32") / 255.0  # Normalize to [0, 1]
-    y = to_categorical(np.array(y))  # One-hot encode the labels
+    y = to_categorical(np.array(y), num_classes=len(labels))  # One-hot encode the labels
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=42)
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test, label_dict

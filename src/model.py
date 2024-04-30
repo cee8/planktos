@@ -23,7 +23,7 @@ def create_model(input_shape, num_classes):
     return model
 
 # Function to train the model
-def train_model(model, X_train, y_train, X_test, y_test, epochs=1, batch_size=32):
+def train_model(model, X_train, y_train, X_test, y_test, epochs=10, batch_size=32):
     history = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_test, y_test))
     return model, history
 
