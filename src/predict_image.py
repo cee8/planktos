@@ -20,26 +20,27 @@ def predict_image(model, img, class_names):
 
 
 def main(image_path, model_path, label_path):
-    print("Loading model...")
+    print("Loading model from:", model_path)
     model = load_model(model_path)
-    print("Model loaded.")
+    print("Model successfully loaded.")
 
-    # Load class names
+    # Load class names from JSON file
     with open(label_path, 'r') as f:
         class_names = json.load(f)
+    print("Class names loaded:", list(class_names.keys()))
 
-    print("Loading and preparing image...")
+    print(f"Loading and preparing image from: {image_path}")
     img = load_and_prepare_image(image_path)
-    print("Image loaded and prepared.")
+    print("Image successfully loaded and prepared for prediction.")
 
-    print("Making prediction...")
+    print("Making prediction on the image...")
     predicted_class_name, prediction = predict_image(model, img, list(class_names.keys()))
-    print("Predicted Class:", predicted_class_name)
-    print("Raw Prediction:", prediction)
+    print(f"Prediction complete. Predicted Class: {predicted_class_name}")
+    print("Detailed Prediction Probabilities:", prediction)
 
 if __name__ == "__main__":
     # Define the path to your image and model here
-    image_path = 'data/test/Nodularia_spumigena_51.png'  # Replace with a valid image path
+    image_path = 'data/test/Chaetoceros_similis_6.png'  # Replace with a valid image path
     model_path = 'models/model.keras'  # Adjust this to where your trained model is saved
     phyto_dir = 'data/training/phyto_skye/phyto'
 
