@@ -40,7 +40,7 @@ def main(image_path, model_path, label_path):
 
 if __name__ == "__main__":
     # Define the path to your image and model here
-    image_path = 'data/test/Chaetoceros_similis_6.png'  # Replace with a valid image path
+    image_path = 'data/test/cerat.png'  # Replace with a valid image path
     model_path = 'models/model.keras'  # Adjust this to where your trained model is saved
     phyto_dir = 'data/training/phyto_skye/phyto'
 
