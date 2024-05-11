@@ -11,6 +11,7 @@ def load_and_prepare_image(image_path, target_size=(128, 128)):
     img = np.expand_dims(img, axis=0)
     return img
 
+  
 def predict_image(model, img, class_names):
     """Predict the class of the image using the loaded model."""
     prediction = model.predict(img)
@@ -18,7 +19,7 @@ def predict_image(model, img, class_names):
     predicted_class_name = class_names[predicted_class_index]
     return predicted_class_name, prediction
 
-
+#Loading Image
 def main(image_path, model_path, label_path):
     print("Loading model from:", model_path)
     model = load_model(model_path)

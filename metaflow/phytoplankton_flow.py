@@ -18,6 +18,7 @@ class PhytoplanktonClassificationFlow(FlowSpec):
         print(f"Data loaded. Training samples: {len(self.X_train)}, Test samples: {len(self.X_test)}")
         self.next(self.train)
 
+
     @step
     def train(self):
         print(f"Current Working Directory: {os.getcwd()}")
