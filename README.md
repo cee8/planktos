@@ -6,8 +6,7 @@
   <img src="https://github.com/cee8/some-chris-images/blob/main/Aphin.png" width="250" height="300" style="margin: 10px;"/>
   <img src="https://github.com/cee8/some-chris-images/blob/main/IMG_8911.jpg" width="250" height="300" style="margin: 10px;"/>
   <img src="https://github.com/cee8/some-chris-images/blob/main/IMG_9086.jpg" width="250" height="300" style="margin: 10px;"/>
-  <img src="https://github.com/cee8/some-chris-images/blob/main/IMG_9086.jpg" width="250" height="300" style="margin: 10px;"/>
-  <img src="https://github.com/cee8/some-chris-images/blob/main/cerat.png" width="250" height="300" style="margin: 10px;"/>
+  <img src="https://github.com/cee8/some-chris-images/blob/main/Cerat.png" width="250" height="300" style="margin: 10px;"/>
   <img src="https://github.com/cee8/some-chris-images/blob/main/OO.png" width="250" height="300" style="margin: 10px;"/>
 </div>
 
