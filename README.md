@@ -1,11 +1,13 @@
 # Planktos: Phytoplankton Image Recognition
 
-![Image 8911](planktos/data/test/IMG_8911.jpg)
+<div>
+<img src="https://github.com/cee8/some-chris-images/blob/main/IMG_9070.jpg" width=250 height=300/>
+<img src="https://github.com/cee8/some-chris-images/blob/main/Aphin.png" width=200 height=300 align="right"/>
+<img src="https://github.com/cee8/some-chris-images/blob/main/IMG_8911.jpg" width=250 height=300 align="right"/>
+<img src="https://github.com/cee8/some-chris-images/blob/main/IMG_9086.jpg" width=250 height=300 align="right"/>
+</div>
 
-![Image 8911](planktos/data/test/IMG_8911.jpg)
-
-![Image 9086](planktos/data/test/IMG_9086.jpg)
-
+<br></br>
 Planktos is an innovative image recognition model tailored for classifying various species of phytoplankton. Built using cutting-edge machine learning algorithms, this tool enables researchers and environmentalists to automate and accelerate the identification process, enhancing studies in marine biology and ecology.
 
 ## Table of Contents
