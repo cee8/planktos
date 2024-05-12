@@ -76,4 +76,4 @@ We welcome contributions to Planktos! For more information on how to help, pleas
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
-Feel free to raise any issues or suggestions on the GitHub page. Alternatively, you can contact me directly at cee8.
+Feel free to raise any issues or suggestions on the GitHub page. Alternatively, you can contact me directly at https://www.linkedin.com/in/beaudoin-/.
