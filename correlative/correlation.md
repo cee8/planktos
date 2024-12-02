@@ -2,7 +2,7 @@
 
 - Correlative data for this project can be stored in this relational format:
 
-![Correlation Format](https://raw.githubusercontent.com/cee8/planktos/branch/correlative/correlation_format.png)
+![Correlation Format](https://github.com/cee8/planktos/blob/main/correlative/correlation_format.png)
 
 ``` dbml
 
